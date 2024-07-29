@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Charles Jordan Condez</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            padding-top: 120px; /* Space for fixed header and nav */
+            padding-bottom: 50px; /* Space for fixed footer */
+        }
+
+        header {
+            background: #222;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Ensures header stays above other content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            background: #444;
+            position: fixed;
+            width: 100%;
+            top: 80px; /* Adjusted to sit below the header */
+            left: 0;
+            z-index: 1000; /* Ensures nav stays above other content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px 15px;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #666;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .intro img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .intro h1 {
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            font-size: 2em;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 40px 0;
+        }
+
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000; /* Ensures footer stays above other content */
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            .intro img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .intro h1 {
+                font-size: 2em;
+            }
+
+            .intro p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>About Me - Charles Jordan Condez</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="./homepage.html">Home</a></li>
+            <li><a href="./About.html">About</a></li>
+            <li><a href="./Certificates.html">Certificates</a></li>
+            <li><a href="./Services.html">Services</a></li>
+            <li><a href="./Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="intro">
+            <img src="./Profile Picture.png" alt="Charles Jordan Condez">
+            <h1>About Me</h1>
+            <p>Hi there! I'm CJ, a versatile professional with a passion for customer support, social media management, and web development. My journey spans various fields, each enriching my skills and broadening my perspective.</p>
+        </div>
+
+        <div class="section-title">My Background</div>
+        <p>I began my career in customer service, honing my skills in communication and problem-solving. My love for digital media led me to video editing, where I've developed a keen eye for detail and creativity. Currently, I manage social media accounts and assist in building engaging online presences.</p>
+
+        <div class="section-title">Skills and Services</div>
+        <ul>
+            <li><strong>Customer Service:</strong> Providing exceptional support and building strong customer relationships.</li>
+            <li><strong>Video Editing:</strong> Creating engaging and polished video content using DaVinci Resolve.</li>
+            <li><strong>Social Media Management:</strong> Crafting strategies and managing content to enhance online visibility.</li>
+        </ul>
+
+        <div class="section-title">My Work</div>
+        <p>Explore my portfolio to see samples of my work and projects that showcase my skills and creativity.</p>
+
+        <hr>
+
+        <div class="section-title">Connect With Me</div>
+        <p>Email: <a href="mailto:charles.jordan.condez@example.com">charles.jordan.condez@example.com</a></p>
+    </div>
+
+    <footer>
+        &copy; 2024 Charles Jordan Condez. All Rights Reserved.
+    </footer>
+</body>
+
+</html>

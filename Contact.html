@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            padding-top: 120px; /* Space for fixed header and nav */
+            padding-bottom: 50px; /* Space for fixed footer */
+        }
+
+        header {
+            background: #222;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Ensures header stays above other content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            background: #444;
+            position: fixed;
+            width: 100%;
+            top: 80px; /* Adjusted to sit below the header */
+            left: 0;
+            z-index: 1000; /* Ensures nav stays above other content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px 15px;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #666;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .intro h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            font-size: 2em;
+        }
+
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+            color: #333;
+            width: 100%;
+        }
+
+        button {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-links a {
+            color: #333;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #555;
+        }
+
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000; /* Ensures footer stays above other content */
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            .intro h1 {
+                font-size: 2em;
+            }
+
+            .intro p {
+                font-size: 1em;
+            }
+        }
+    </style>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>Charles Jordan Condez - Social Media Manager & Customer Support</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="./homepage.html">Home</a></li>
+            <li><a href="./About.html">About</a></li>
+            <li><a href="./Certificates.html">Certificates</a></li>
+            <li><a href="./Services.html">Services</a></li>
+            <li><a href="./Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="intro">
+            <h1>Contact Me</h1>
+            <p>If you have any questions or would like to get in touch, please fill out the form below:</p>
+        </div>
+        
+        <div class="form-section">
+            <form id="contactForm" onsubmit="sendEmail(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="user_name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="user_email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="user_message" rows="5" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+
+            <!-- Social Media Links -->
+            <div class="social-links">
+                <a href="https://www.facebook.com/cjcondez23" target="_blank" class="fab fa-facebook-f" title="Facebook"></a>
+                <a href="https://twitter.com/cjvlogs23" target="_blank" class="fab fa-twitter" title="Twitter"></a>
+                <a href="https://www.instagram.com/cjvlogs23/" target="_blank" class="fab fa-instagram" title="Instagram"></a>
+                <a href="https://www.linkedin.com/in/cjvlogs23/" target="_blank" class="fab fa-linkedin-in" title="LinkedIn"></a>
+                <a href="https://youtube.com/@cjvlogs23?si=qg-KMgqzQrJ7QzAF" target="_blank" class="fab fa-youtube" title="YouTube"></a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2024 Charles Jordan Condez. All Rights Reserved.
+    </footer>
+
+    <!-- EmailJS CDN -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      (function() {
+        emailjs.init("7qfMU9C0wQl0abnky"); // Replace with your EmailJS user ID
+      })();
+      
+      function sendEmail(event) {
+        event.preventDefault(); // Prevent default form submission
+        
+        const form = event.target;
+        
+        // Check if email is valid before sending
+        const emailField = document.getElementById('email');
+        if (!emailField.checkValidity()) {
+          alert('Please enter a valid email address.');
+          return;
+        }
+        
+        emailjs.sendForm('service_dqlwd9g', 'template_39canqr', form)
+          .then(function(response) {
+            alert('Your message has been sent successfully!');
+            form.reset(); // Clear form after successful submission
+          }, function(error) {
+            alert('There was a problem sending your message.');
+            console.error('Failed to send email:', error);
+          });
+      }
+    </script>
+</body>
+
+</html>
