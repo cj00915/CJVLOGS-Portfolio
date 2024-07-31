@@ -158,15 +158,16 @@
             border-radius: 10px;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 200px; /* Default width */
-            height: 150px; /* Default height */
+            /* Adjusting the size of design items */
+            height: 200px; /* Fixed height for consistency */
+            width: 100%; /* Full width of the grid column */
         }
 
         .design-item img {
             display: block;
             width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures image covers container */
+            height: 100%; /* Ensure image covers the entire item */
+            object-fit: cover; /* Cover the item area */
             transition: transform 0.3s;
         }
 
@@ -273,7 +274,8 @@
             <iframe src="https://www.youtube.com/embed/9ihiIpGxaOs?si=4V3ISbOH0jgygVJH" title="YouTube video player" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/GuuvLnUkvWQ?si=GpWeH3qdp56hy8sX" title="YouTube video player" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/ie-Wzhce1pQ?si=9a13acr_Vhr-IL65" title="YouTube video player" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/lKTy7WBR6Y8?si=w0x9G41m9pS5l6qr" title="YouTube video player" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/Crf7VeKdVqc?si=nfd0T3SzMMMlg27s" title="YouTube video player" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/PYEKONfsCEs?si=X0vmPz4SmQNYcAyZ" title="YouTube video player" allowfullscreen></iframe>
         </div>
         
         <div class="section-title">Graphic Designs</div>
@@ -293,28 +295,28 @@
         </div>
     </div>
     
-    <div id="fullscreen-overlay" class="fullscreen-overlay">
-        <img id="fullscreen-image" src="" alt="Fullscreen Image">
-    </div>
-    
     <footer>
-        <p>&copy; 2024 Charles Jordan Condez. All rights reserved.</p>
+        &copy; 2024 Charles Jordan Condez. All rights reserved.
     </footer>
-    
+
+    <div class="fullscreen-overlay">
+        <img src="" alt="Fullscreen Image">
+    </div>
+
     <script>
+        // JavaScript for fullscreen image overlay
         document.querySelectorAll('.design-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const imageSrc = item.querySelector('img').src;
-                const overlay = document.getElementById('fullscreen-overlay');
-                const fullscreenImage = document.getElementById('fullscreen-image');
-                
-                fullscreenImage.src = imageSrc;
+            item.addEventListener('click', function () {
+                const src = this.querySelector('img').src;
+                const overlay = document.querySelector('.fullscreen-overlay');
+                const overlayImg = overlay.querySelector('img');
+                overlayImg.src = src;
                 overlay.classList.add('active');
             });
         });
 
-        document.getElementById('fullscreen-overlay').addEventListener('click', () => {
-            document.getElementById('fullscreen-overlay').classList.remove('active');
+        document.querySelector('.fullscreen-overlay').addEventListener('click', function () {
+            this.classList.remove('active');
         });
     </script>
 </body>
