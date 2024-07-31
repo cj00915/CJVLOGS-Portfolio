@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" href="./CJVLOGS Logo.png" type="image/x-icon">
-    <link rel="shortcut icon" href="./CJVLOGS Logo.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificates - Charles Jordan Condez</title>
@@ -21,20 +19,38 @@
             background: #222;
             color: #fff;
             padding: 20px 0;
-            text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000; /* Ensures header stays above other content */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 4px solid #fff; /* White line between header and nav */
+        }
+
+        .header-logo {
+            position: absolute;
+            left: 20px;
+        }
+
+        .header-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .header-title {
+            text-align: center;
+            flex: 1;
         }
 
         nav {
             background: #444;
             position: fixed;
             width: 100%;
-            top: 80px; /* Adjusted to sit below the header */
+            top: 84px; /* Adjusted to sit below the header with line */
             left: 0;
             z-index: 1000; /* Ensures nav stays above other content */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -146,7 +162,10 @@
 
 <body>
     <header>
-        <h1>Certificates - Charles Jordan Condez</h1>
+        <a href="./homepage.html" class="header-logo">
+            <img src="./CJVLOGS Logo.png" alt="CJVLOGS Logo">
+        </a>
+        <h1 class="header-title">Certificates - Charles Jordan Condez</h1>
     </header>
 
     <nav>
