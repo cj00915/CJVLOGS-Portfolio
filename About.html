@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" href="./CJVLOGS Logo.png" type="image/x-icon">
-    <link rel="shortcut icon" href="./CJVLOGS Logo.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Charles Jordan Condez</title>
@@ -22,20 +20,38 @@
             background: #222;
             color: #fff;
             padding: 20px 0;
-            text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000; /* Ensures header stays above other content */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            border-bottom: 4px solid #fff; /* White line between header and nav */
+        }
+
+        .header-logo {
+            position: absolute;
+            left: 20px;
+        }
+
+        .header-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .header-title {
+            text-align: center;
         }
 
         nav {
             background: #444;
             position: fixed;
             width: 100%;
-            top: 80px; /* Adjusted to sit below the header */
+            top: 84px; /* Adjusted to sit below the header with line */
             left: 0;
             z-index: 1000; /* Ensures nav stays above other content */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -120,6 +136,40 @@
             margin: 40px 0;
         }
 
+        .skills-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .skill {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 300px;
+            margin: 10px;
+        }
+
+        .skill i {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .skill h3 {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+
+        .interest-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
         footer {
             background: #222;
             color: #fff;
@@ -148,13 +198,30 @@
             .intro p {
                 font-size: 1em;
             }
+
+            .skills-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skill {
+                max-width: 100%;
+            }
+        }
+
+        .center-text {
+            text-align: center;
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
     <header>
-        <h1>About Me - Charles Jordan Condez</h1>
+        <a href="./homepage.html" class="header-logo">
+            <img src="./CJVLOGS Logo.png" alt="CJVLOGS Logo">
+        </a>
+        <h1 class="header-title">About Me - Charles Jordan Condez</h1>
     </header>
 
     <nav>
@@ -174,27 +241,73 @@
             <p>Hi there! I'm CJ, a versatile professional with a passion for customer support, social media management, and web development. My journey spans various fields, each enriching my skills and broadening my perspective.</p>
         </div>
 
-        <div class="section-title">My Background</div>
-        <p>I began my career in customer service, honing my skills in communication and problem-solving. My love for digital media led me to video editing, where I've developed a keen eye for detail and creativity. Currently, I manage social media accounts and assist in building engaging online presences.</p>
-
-        <div class="section-title">Skills and Services</div>
+        <div class="section-title">Education</div>
         <ul>
-            <li><strong>Customer Service:</strong> Providing exceptional support and building strong customer relationships.</li>
-            <li><strong>Video Editing:</strong> Creating engaging and polished video content using DaVinci Resolve.</li>
-            <li><strong>Social Media Management:</strong> Crafting strategies and managing content to enhance online visibility.</li>
+            <li><strong>De La Salle University - Dasmariñas</strong></li>
+            <li>Graduate - Associate in Computer Science, 2018</li>
         </ul>
 
-        <div class="section-title">My Work</div>
-        <p>Explore my portfolio to see samples of my work and projects that showcase my skills and creativity.</p>
+        <div class="section-title">My Skills</div>
+        <div class="skills-grid">
+            <div class="skill">
+                <i class="fas fa-headset"></i>
+                <h3>Customer Support</h3>
+                <p>Delivering excellent customer service with a focus on problem-solving and effective communication.</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-video"></i>
+                <h3>Video Editing</h3>
+                <p>Creating compelling video content using DaVinci Resolve and other editing tools.</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-share-alt"></i>
+                <h3>Social Media Management</h3>
+                <p>Managing social media strategies and content to enhance engagement and online presence.</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>Sales</h3>
+                <p>Implementing effective sales strategies to boost revenue and customer satisfaction.</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-handshake"></i>
+                <h3>Customer Success</h3>
+                <p>Ensuring customer success through dedicated support and relationship building.</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-refresh"></i>
+                <h3>Renewal Associate</h3>
+                <p>Handling client renewals and ensuring ongoing client satisfaction.</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-calendar-check"></i>
+                <h3>Appointment Setting</h3>
+                <p>Coordinating appointments efficiently to streamline interactions.</p>
+            </div>
+        </div>
 
-        <hr>
-
-        <div class="section-title">Connect With Me</div>
-        <p>Email: <a href="mailto:charles.jordan.condez@example.com">charles.jordan.condez@example.com</a></p>
+        <div class="section-title">My Interests</div>
+        <div class="skills-grid">
+            <div class="skill">
+                <i class="fas fa-campground interest-icon"></i>
+                <h3>Camping</h3>
+                <p>Enjoying the great outdoors and the serenity of nature.</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-gamepad interest-icon"></i>
+                <h3>Gaming</h3>
+                <p>Exploring new worlds and challenges through video games.</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-coffee interest-icon"></i>
+                <h3>Coffee</h3>
+                <p>Relishing a good cup of coffee and exploring different brews.</p>
+            </div>
+        </div>
     </div>
 
     <footer>
-        &copy; 2024 Charles Jordan Condez. All Rights Reserved.
+        <p>&copy; 2024 Charles Jordan Condez. All rights reserved.</p>
     </footer>
 </body>
 
