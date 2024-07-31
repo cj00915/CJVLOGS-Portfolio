@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" href="./CJVLOGS Logo.png" type="image/x-icon">
-    <link rel="shortcut icon" href="./CJVLOGS Logo.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
@@ -22,13 +20,29 @@
             background: #222;
             color: #fff;
             padding: 20px 0;
-            text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000; /* Ensures header stays above other content */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* Space between logo and title */
+        }
+
+        .header-logo {
+            position: absolute;
+            left: 20px; /* Space from the left edge */
+        }
+
+        .header-logo img {
+            height: 40px; /* Adjust the logo size as needed */
+        }
+
+        .header-title {
+            text-align: center;
         }
 
         nav {
@@ -196,9 +210,14 @@
 
 <body>
     <header>
-        <h1>LET'S CONNECT!</h1>
+        <a href="./homepage.html" class="header-logo">
+            <img src="CJVLOGS Logo.png" alt="CJVLOGS Logo"> <!-- Replace with actual logo path -->
+        </a>
+        <div class="header-title">
+            <h1>Charles Jordan Condez - Social Media Manager & Customer Support</h1>
+        </div>
     </header>
-    
+
     <nav>
         <ul>
             <li><a href="./homepage.html">Home</a></li>
@@ -208,13 +227,13 @@
             <li><a href="./Contact.html">Contact</a></li>
         </ul>
     </nav>
-    
+
     <div class="container">
         <div class="intro">
             <h1>Contact Me</h1>
             <p>If you have any questions or would like to get in touch, please fill out the form below:</p>
         </div>
-        
+
         <div class="form-section">
             <form id="contactForm" onsubmit="sendEmail(event)">
                 <label for="name">Name:</label>
@@ -239,7 +258,7 @@
             </div>
         </div>
     </div>
-    
+
     <footer>
         &copy; 2024 Charles Jordan Condez. All Rights Reserved.
     </footer>
