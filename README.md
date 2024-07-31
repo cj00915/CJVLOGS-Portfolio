@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="./CJVLOGS Logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./CJVLOGS Logo.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charles Jordan Condez - Portfolio</title>
@@ -20,13 +22,31 @@
             background: #222;
             color: #fff;
             padding: 20px 0;
-            text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000; /* Ensures header stays above other content */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .header-logo {
+            position: absolute;
+            left: 20px;
+        }
+
+        .header-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .header-title {
+            text-align: center;
+            margin: 0;
         }
 
         nav {
@@ -57,11 +77,12 @@
             font-weight: bold;
             padding: 10px 15px;
             display: block;
-            transition: background 0.3s;
+            transition: background 0.3s, color 0.3s;
         }
 
         nav a:hover {
             background: #666;
+            color: #fff;
         }
 
         .container {
@@ -72,23 +93,37 @@
 
         .intro {
             text-align: center;
-            padding: 50px 0;
+            padding: 50px 20px;
         }
 
         .intro h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             margin-bottom: 20px;
+            color: #222;
         }
 
         .intro p {
             font-size: 1.2em;
+            color: #666;
+            line-height: 1.6;
             margin-bottom: 40px;
         }
 
         .section-title {
             text-align: center;
             margin: 50px 0 30px;
-            font-size: 2em;
+            font-size: 2.5em;
+            color: #222;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #333;
+            margin: 20px auto 0;
         }
 
         .video-section, .design-section {
@@ -98,16 +133,72 @@
             gap: 20px;
         }
 
-        .video-section iframe, .design-section img {
+        .video-section iframe, .design-section .design-item img {
             max-width: 100%;
             height: auto;
-            border: 2px solid #ddd;
-            border-radius: 5px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .video-section iframe:hover, .design-section .design-item:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .design-section {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .design-item {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 200px; /* Default width */
+            height: 150px; /* Default height */
+        }
+
+        .design-item img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers container */
             transition: transform 0.3s;
         }
 
-        .video-section iframe:hover, .design-section img:hover {
+        .design-item:hover {
             transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .fullscreen-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            transition: opacity 0.3s ease;
+        }
+
+        .fullscreen-overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .fullscreen-overlay.active {
+            display: flex;
+            opacity: 1;
         }
 
         footer {
@@ -127,11 +218,26 @@
             }
 
             .intro h1 {
-                font-size: 2em;
+                font-size: 2.5em;
             }
 
             .intro p {
                 font-size: 1em;
+            }
+
+            .video-section iframe, .design-section .design-item img {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            .design-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .design-section {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -139,8 +245,10 @@
 
 <body>
     <header>
-        
-        <h1>Charles Jordan Condez - Social Media Manager & Customer Support</h1>
+        <a href="./homepage.html" class="header-logo">
+            <img src="./CJVLOGS Logo.png" alt="CJVLOGS Logo">
+        </a>
+        <h1 class="header-title">Charles Jordan Condez - Social Media Manager & Customer Support</h1>
     </header>
     
     <nav>
@@ -156,7 +264,7 @@
     <div class="container">
         <div class="intro">
             <h1>Welcome to My Portfolio</h1>
-            <p>Discover my journey and experience in social media management and customer support.</p>
+            <p>Discover my journey and experience in social media management and customer support. I have a passion for creating impactful content and providing excellent service. Explore my work to see how I can help elevate your brand.</p>
         </div>
         
         <div class="section-title">Sample Videos</div>
@@ -165,24 +273,50 @@
             <iframe src="https://www.youtube.com/embed/9ihiIpGxaOs?si=4V3ISbOH0jgygVJH" title="YouTube video player" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/GuuvLnUkvWQ?si=GpWeH3qdp56hy8sX" title="YouTube video player" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/ie-Wzhce1pQ?si=9a13acr_Vhr-IL65" title="YouTube video player" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/Crf7VeKdVqc?si=nfd0T3SzMMMlg27s" title="YouTube video player" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/PYEKONfsCEs?si=X0vmPz4SmQNYcAyZ" title="YouTube video player" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/lKTy7WBR6Y8?si=w0x9G41m9pS5l6qr" title="YouTube video player" allowfullscreen></iframe>
         </div>
         
         <div class="section-title">Graphic Designs</div>
         <div class="design-section">
-            <img src="path_to_design1.jpg" alt="Graphic Design 1">
-            <img src="path_to_design2.jpg" alt="Graphic Design 2">
-            <img src="path_to_design3.jpg" alt="Graphic Design 3">
-            <img src="path_to_design4.jpg" alt="Graphic Design 4">
-            <img src="path_to_design5.jpg" alt="Graphic Design 5">
-            <img src="path_to_design6.jpg" alt="Graphic Design 6">
+            <div class="design-item">
+                <img src="./Test.jpg" alt="Graphic Design 1">
+            </div>
+            <div class="design-item">
+                <img src="./CJ Creatives Logo.png" alt="Graphic Design 2">
+            </div>
+            <div class="design-item">
+                <img src="./From Vision to Success.jpg" alt="Graphic Design 3">
+            </div>
+            <div class="design-item">
+                <img src="./Marketing.png" alt="Graphic Design 4">
+            </div>
         </div>
     </div>
     
+    <div id="fullscreen-overlay" class="fullscreen-overlay">
+        <img id="fullscreen-image" src="" alt="Fullscreen Image">
+    </div>
+    
     <footer>
-        &copy; 2024 Charles Jordan Condez. All Rights Reserved.
+        <p>&copy; 2024 Charles Jordan Condez. All rights reserved.</p>
     </footer>
+    
+    <script>
+        document.querySelectorAll('.design-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const imageSrc = item.querySelector('img').src;
+                const overlay = document.getElementById('fullscreen-overlay');
+                const fullscreenImage = document.getElementById('fullscreen-image');
+                
+                fullscreenImage.src = imageSrc;
+                overlay.classList.add('active');
+            });
+        });
+
+        document.getElementById('fullscreen-overlay').addEventListener('click', () => {
+            document.getElementById('fullscreen-overlay').classList.remove('active');
+        });
+    </script>
 </body>
 
 </html>
