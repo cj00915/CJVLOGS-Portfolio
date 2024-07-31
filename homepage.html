@@ -22,13 +22,31 @@
             background: #222;
             color: #fff;
             padding: 20px 0;
-            text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000; /* Ensures header stays above other content */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .header-logo {
+            position: absolute;
+            left: 20px;
+        }
+
+        .header-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .header-title {
+            text-align: center;
+            margin: 0;
         }
 
         nav {
@@ -140,12 +158,15 @@
             border-radius: 10px;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 200px; /* Default width */
+            height: 150px; /* Default height */
         }
 
         .design-item img {
             display: block;
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers container */
             transition: transform 0.3s;
         }
 
@@ -224,7 +245,10 @@
 
 <body>
     <header>
-        <h1>Charles Jordan Condez - Social Media Manager & Customer Support</h1>
+        <a href="./homepage.html" class="header-logo">
+            <img src="./CJVLOGS Logo.png" alt="CJVLOGS Logo">
+        </a>
+        <h1 class="header-title">Charles Jordan Condez - Social Media Manager & Customer Support</h1>
     </header>
     
     <nav>
@@ -249,39 +273,38 @@
             <iframe src="https://www.youtube.com/embed/9ihiIpGxaOs?si=4V3ISbOH0jgygVJH" title="YouTube video player" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/GuuvLnUkvWQ?si=GpWeH3qdp56hy8sX" title="YouTube video player" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/ie-Wzhce1pQ?si=9a13acr_Vhr-IL65" title="YouTube video player" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/Crf7VeKdVqc?si=nfd0T3SzMMMlg27s" title="YouTube video player" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/PYEKONfsCEs?si=X0vmPz4SmQNYcAyZ" title="YouTube video player" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/lKTy7WBR6Y8?si=w0x9G41m9pS5l6qr" title="YouTube video player" allowfullscreen></iframe>
         </div>
         
         <div class="section-title">Graphic Designs</div>
         <div class="design-section">
-            <div class="design-item" data-image="./Test.jpg">
+            <div class="design-item">
                 <img src="./Test.jpg" alt="Graphic Design 1">
             </div>
-            <div class="design-item" data-image="./Test.jpg">
-                <img src="./Test.jpg" alt="Graphic Design 2">
+            <div class="design-item">
+                <img src="./CJ Creatives Logo.png" alt="Graphic Design 2">
             </div>
-            <div class="design-item" data-image="./Test.jpg">
-                <img src="./Test.jpg" alt="Graphic Design 3">
+            <div class="design-item">
+                <img src="./From Vision to Success.jpg" alt="Graphic Design 3">
             </div>
-            <div class="design-item" data-image="./Test.jpg">
-                <img src="./Test.jpg" alt="Graphic Design 4">
+            <div class="design-item">
+                <img src="./Marketing.png" alt="Graphic Design 4">
             </div>
         </div>
     </div>
     
-    <div class="fullscreen-overlay" id="fullscreen-overlay">
-        <img id="fullscreen-image" src="" alt="Fullscreen Graphic Design">
+    <div id="fullscreen-overlay" class="fullscreen-overlay">
+        <img id="fullscreen-image" src="" alt="Fullscreen Image">
     </div>
-
+    
     <footer>
-        &copy; 2024 Charles Jordan Condez. All Rights Reserved.
+        <p>&copy; 2024 Charles Jordan Condez. All rights reserved.</p>
     </footer>
-
+    
     <script>
         document.querySelectorAll('.design-item').forEach(item => {
             item.addEventListener('click', () => {
-                const imageSrc = item.getAttribute('data-image');
+                const imageSrc = item.querySelector('img').src;
                 const overlay = document.getElementById('fullscreen-overlay');
                 const fullscreenImage = document.getElementById('fullscreen-image');
                 
