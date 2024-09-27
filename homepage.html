@@ -133,14 +133,14 @@
             gap: 20px;
         }
 
-        .video-section iframe, .design-section .design-item img {
+        .video-section iframe, .design-section .design-item img, .design-section .design-item video {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .video-section iframe:hover, .design-section .design-item:hover img {
+        .video-section iframe:hover, .design-section .design-item:hover img, .design-section .design-item:hover video {
             transform: scale(1.05);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
@@ -158,16 +158,15 @@
             border-radius: 10px;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            /* Adjusting the size of design items */
             height: 200px; /* Fixed height for consistency */
-            width: 100%; /* Full width of the grid column */
+            width: 100%;
         }
 
-        .design-item img {
+        .design-item img, .design-item video {
             display: block;
             width: 100%;
-            height: 100%; /* Ensure image covers the entire item */
-            object-fit: cover; /* Cover the item area */
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.3s;
         }
 
@@ -190,7 +189,7 @@
             transition: opacity 0.3s ease;
         }
 
-        .fullscreen-overlay img {
+        .fullscreen-overlay img, .fullscreen-overlay video {
             max-width: 90%;
             max-height: 90%;
             border-radius: 10px;
@@ -210,7 +209,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
-            z-index: 1000; /* Ensures footer stays above other content */
+            z-index: 1000;
         }
 
         @media (max-width: 768px) {
@@ -226,7 +225,7 @@
                 font-size: 1em;
             }
 
-            .video-section iframe, .design-section .design-item img {
+            .video-section iframe, .design-section .design-item img, .design-section .design-item video {
                 max-width: 100%;
                 margin: 0 auto;
             }
@@ -274,49 +273,62 @@
             <iframe src="https://www.youtube.com/embed/9ihiIpGxaOs?si=4V3ISbOH0jgygVJH" title="YouTube video player" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/GuuvLnUkvWQ?si=GpWeH3qdp56hy8sX" title="YouTube video player" allowfullscreen></iframe>
             <iframe src="https://www.youtube.com/embed/ie-Wzhce1pQ?si=9a13acr_Vhr-IL65" title="YouTube video player" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/Crf7VeKdVqc?si=nfd0T3SzMMMlg27s" title="YouTube video player" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/PYEKONfsCEs?si=X0vmPz4SmQNYcAyZ" title="YouTube video player" allowfullscreen></iframe>
         </div>
-        
-        <div class="section-title">Graphic Designs</div>
+
+        <div class="section-title">Designs</div>
         <div class="design-section">
-            <div class="design-item">
-                <img src="./Test.jpg" alt="Graphic Design 1">
-            </div>
-            <div class="design-item">
-                <img src="./CJ Creatives Logo.png" alt="Graphic Design 2">
-            </div>
-            <div class="design-item">
-                <img src="./From Vision to Success.jpg" alt="Graphic Design 3">
-            </div>
-            <div class="design-item">
-                <img src="./Marketing.png" alt="Graphic Design 4">
-            </div>
+            <div class="design-item"><img src="file1.png" alt="Design Image 1"></div>
+            <div class="design-item"><img src="file2.png" alt="Design Image 2"></div>
+            <div class="design-item"><img src="file3.png" alt="Design Image 3"></div>
+            <div class="design-item"><img src="file4.png" alt="Design Image 4"></div>
+            <div class="design-item"><img src="file5.png" alt="Design Image 5"></div>
+            <div class="design-item"><img src="file6.png" alt="Design Image 6"></div>
+            <div class="design-item"><img src="file7.png" alt="Design Image 7"></div>
+            <div class="design-item"><video src="file8.mp4" controls></video></div>
+            <div class="design-item"><video src="file9.mp4" controls></video></div>
         </div>
     </div>
-    
-    <footer>
-        &copy; 2024 Charles Jordan Condez. All rights reserved.
-    </footer>
 
-    <div class="fullscreen-overlay">
-        <img src="" alt="Fullscreen Image">
+    <footer>
+        <p>&copy; 2024 Charles Jordan Condez. All Rights Reserved.</p>
+    </footer>
+    
+    <div class="fullscreen-overlay" id="fullscreen-overlay">
+        <img src="" alt="Fullscreen Image" id="fullscreen-image">
+        <video controls id="fullscreen-video"></video>
     </div>
 
     <script>
-        // JavaScript for fullscreen image overlay
-        document.querySelectorAll('.design-item').forEach(item => {
-            item.addEventListener('click', function () {
-                const src = this.querySelector('img').src;
-                const overlay = document.querySelector('.fullscreen-overlay');
-                const overlayImg = overlay.querySelector('img');
-                overlayImg.src = src;
-                overlay.classList.add('active');
-            });
-        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const designItems = document.querySelectorAll('.design-item');
+            const fullscreenOverlay = document.getElementById('fullscreen-overlay');
+            const fullscreenImage = document.getElementById('fullscreen-image');
+            const fullscreenVideo = document.getElementById('fullscreen-video');
 
-        document.querySelector('.fullscreen-overlay').addEventListener('click', function () {
-            this.classList.remove('active');
+            designItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const img = this.querySelector('img');
+                    const video = this.querySelector('video');
+
+                    if (img) {
+                        fullscreenImage.src = img.src;
+                        fullscreenVideo.style.display = 'none';
+                        fullscreenImage.style.display = 'block';
+                    } else if (video) {
+                        fullscreenVideo.src = video.src;
+                        fullscreenImage.style.display = 'none';
+                        fullscreenVideo.style.display = 'block';
+                    }
+
+                    fullscreenOverlay.classList.add('active');
+                });
+            });
+
+            fullscreenOverlay.addEventListener('click', function () {
+                fullscreenOverlay.classList.remove('active');
+                fullscreenImage.src = '';
+                fullscreenVideo.src = '';
+            });
         });
     </script>
 </body>
